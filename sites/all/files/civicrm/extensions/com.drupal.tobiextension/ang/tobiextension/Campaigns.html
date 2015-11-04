@@ -1,0 +1,32 @@
+<div class="crm-container">
+  <div crm-ui-debug="myContact"></div>
+
+  <form name="myForm" crm-ui-id-scope>
+
+    <div crm-ui-accordion="{title: ts('Campaign List')}">
+      <table>
+        <tr >
+            <td>Title
+            <td>is_active
+            <td>goal_amount
+            <td>no of contribution
+            <td>amount raised
+        </tr>
+          <tr ng-repeat="x in names">
+                <td>{{ x.title }}</td>
+                <td>{{ x.is_active == '1' ? 'ACTIVE' :  'NOT ACTIVE'}}</td>
+                <td>{{ x.goal_amount }}</td>
+                <td>{{ x.ContributionSoft.values.length }}</td>
+                <td>
+                    <ul ng-repeat="cs_value in x.ContributionSoft.values">
+                        <li>{{ cs_value.currency +  ' ' + cs_value.amount }}
+                    </ul>
+                </td>
+          </tr>
+      </table>
+    </div>
+
+
+  </form>
+
+</div>
